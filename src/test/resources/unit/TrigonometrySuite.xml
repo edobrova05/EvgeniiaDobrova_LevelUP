@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Trigonometry Test Suite">
+
+    <test name="Trigonometry Test">
+        <classes>
+            <class name="homework_5.TrigonometryTest">
+            <methods>
+                <include name="doubleSinTest"/>
+            </methods>
+            <methods>
+                <include name="doubleCosTest"/>
+            </methods>
+            <methods>
+                <include name="doubleTgTest"/>
+            </methods>
+            <methods>
+                <include name="doubleCtgTest"/>
+            </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

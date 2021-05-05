@@ -27,7 +27,7 @@ public class Exercise_1 extends MailConfigurations {
         sleep(2500);
 
         WebElement recipient = wait.until(ExpectedConditions.elementToBeClickable((By.cssSelector("div[data-name='to'] input"))));
-        recipient.sendKeys(MY_EMAIL);
+        recipient.sendKeys(MYEMAIL);
         sleep(2500);
         String expectedRecipient = recipient.getText();
 
@@ -70,12 +70,12 @@ public class Exercise_1 extends MailConfigurations {
         sendMail.click();
         sleep(2500);
 
-        boolean actualSentText = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='У вас нет незаконченных']/.."))).isDisplayed();
-        assertTrue(actualSentText);
-        sleep(2500);
-
         WebElement closeMessage = driver.findElement(By.cssSelector("span[title='Закрыть']"));
         closeMessage.click();
+        sleep(2500);
+
+        boolean actualSentText = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='У вас нет незаконченных']/.."))).isDisplayed();
+        assertTrue(actualSentText);
         sleep(2500);
 
         driver.findElement(By.xpath("//*[text()='Отправленные']/..")).click();

@@ -5,13 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 public abstract class MailConfigurations {
 
     protected final String USERNAME = "eedobrova";
-    protected final String MY_EMAIL = USERNAME + "@bk.ru";
+    protected final String MYEMAIL = USERNAME + "@bk.ru";
     protected final String PASSWORD = "testmail23456";
     protected final String URL = "https://mail.ru";
 
@@ -43,8 +44,11 @@ public abstract class MailConfigurations {
 
     @AfterMethod
     public void exit() {
-        driver.findElement(By.cssSelector("div[aria-label='eedobrova@bk.ru']")).click();
-        driver.findElement(By.xpath("//*[text() = 'Выйти']")).click();
+       WebElement mailClose = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[aria-label='eedobrova@bk.ru']")));
+       mailClose.click();
+
+       WebElement goOut = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-click-counter='75068944']")));
+       goOut.click();
     }
 
     @AfterSuite

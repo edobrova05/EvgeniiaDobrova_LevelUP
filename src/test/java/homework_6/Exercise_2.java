@@ -43,9 +43,8 @@ public class Exercise_2 extends MailConfigurations{
 
         WebElement sendMail = driver.findElement(By.cssSelector("span[title='Отправить']"));
         sendMail.click();
-        sleep(2500);
 
-        WebElement closeMessage = driver.findElement(By.cssSelector("span[title='Закрыть']"));
+        WebElement closeMessage = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span[title='Закрыть']")));
         closeMessage.click();
         sleep(2500);
 
@@ -64,7 +63,6 @@ public class Exercise_2 extends MailConfigurations{
         List<WebElement> elements1 = driver.findElements(By.cssSelector("[class='llc__item llc__item_title']"));
         Assert.assertTrue(elements1.get(0).getText().contains(expectedTheme));
 
-
         String actualRecipient = driver.findElement(By.xpath("//*[@class='llc__item llc__item_correspondent llc__item_unread']/span")).getAttribute("title");
         assertTrue(actualRecipient.contains(expectedRecipient));
 
@@ -72,6 +70,9 @@ public class Exercise_2 extends MailConfigurations{
         sleep(2500);
 
         //String actualTheme = wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath("//*[@class='thread__subject thread__subject_pony-mode']")))).getText();
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("thread__header")));
+
+        //проблема с actual и expected
         String actualTheme = driver.findElement(By.xpath("//*[@class='thread__subject thread__subject_pony-mode']")).getText();
         assertEquals(actualTheme, expectedTheme);
         sleep(2500);

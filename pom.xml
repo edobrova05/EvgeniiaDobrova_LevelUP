@@ -20,6 +20,20 @@
         <webdrivermanager.version>4.3.1</webdrivermanager.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>mail-ru-test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <browser.name>chrome</browser.name>
+                <suiteXml>${project.basedir}/src/test/resources/unit/MailSuite.xml</suiteXml>
+            </properties>
+        </profile>
+    </profiles>
+
+
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>

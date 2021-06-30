@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite For Mail.Ru Tests">
+
+    <test name="Mail.Ru Зфпу Щиоусеы Tests">
+        <classes>
+            <class name="homework_7.RuleMailTest"/>
+            <class name="homework_7.SendMailTest"/>
+            <class name="homework_7.TrashFolderTest"/>
+        </classes>
+    </test>
+
+</suite>

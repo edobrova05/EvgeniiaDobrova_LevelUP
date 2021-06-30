@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import java.util.concurrent.TimeUnit;
+
 public abstract class MailConfigurations {
 
     protected final String USERNAME = "eedobrova";
@@ -29,6 +31,7 @@ public abstract class MailConfigurations {
         driver = new ChromeDriver();
         driver.navigate().to(URL);
         driver.manage().window().maximize();
+        //driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
         wait = new WebDriverWait(driver, 20);
         WebElement login = driver.findElement(By.cssSelector("[name='login']"));

@@ -14,8 +14,25 @@
 
         <testng.version>7.4.0</testng.version>
         <junit.version>4.13.1</junit.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <webdrivermanager.version>4.3.1</webdrivermanager.version>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>mail-ru-test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <browser.name>chrome</browser.name>
+                <suiteXml>${project.basedir}/src/test/resources/unit/MailSuite.xml</suiteXml>
+            </properties>
+        </profile>
+    </profiles>
+
 
     <dependencies>
         <dependency>
@@ -24,18 +41,32 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>ru.leveup.qa.at</groupId>
             <artifactId>calculator</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
         </dependency>
     </dependencies>
     <build>

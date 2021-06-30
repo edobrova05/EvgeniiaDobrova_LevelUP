@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite For Mail.Ru Tests">
+
+    <test name="Mail.Ru Tests">
+        <classes>
+            <class name="homework_6.Exercise_1"/>
+            <class name="homework_6.Exercise_2"/>
+            <class name="homework_6.Exercise_3"/>
+        </classes>
+    </test>
+
+</suite>
